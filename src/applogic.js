@@ -11,3 +11,19 @@ export class Todo {
         this.completed = this.completed? false: true;
     };
 };
+
+export class List {
+    constructor(name){
+        this.name = name;
+        this.array = [];
+    };
+
+    addTodo(todo){
+        this.array.push(todo);
+    };
+
+    removeTodo(todo){
+        const todoIndex = this.array.indexOf(todo);
+        this.array.splice(todoIndex, 1);
+    };
+}

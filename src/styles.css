@@ -3,3 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    padding: 2vw;
+    background-color: rgb(147, 184, 253);
+    height: 100vh;
+}
+
+h1 {
+    margin: 2vh;
+    font-size: 2rem;
+}
+
+.todo-list-container {
+    background-color: whitesmoke;
+    height: 85vh;
+    border-radius: 2vh;
+    padding: 2vh;
+}
