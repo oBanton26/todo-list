@@ -15,9 +15,16 @@ h1 {
     font-size: 2rem;
 }
 
-.todo-list-container {
+#todo-list-container {
     background-color: whitesmoke;
     height: 85vh;
     border-radius: 2vh;
     padding: 2vh;
+}
+
+.todo {
+    margin: 0.5rem;
+    padding: 0.4rem;
+    background-color: blanchedalmond;
+    width: 260px;
 }
