@@ -28,12 +28,24 @@ export class List {
     };
 };
 
-// The purpose of the defaultList is to contain all the Todos that don't fit 
-// inside a specific list. It is NOT the generalList which is for displaying 
-// all of the Todos (from defaultList and other specified lists)
-export const defaultList = new List("Default List");
+// allLists is the top level list which contains every lists: defaultList and
+// all the other lists created with createList()
+export const allLists = new List("All lists");
 
-export function createTodo(title, description = "", dueDate = new Date(), priority = 3, list = defaultList){
+// The purpose of the defaultList is to contain all the Todos. If you want to
+// to add a Todo to another List, you need to use the List.addTodo() method,
+// which will duplicate it.
+export const defaultList = createList("Default List");
+
+
+export function createTodo(title, description = "", dueDate = new Date(), priority = 3){
     const newTodo = new Todo(title, description, dueDate, priority);
-    list.addTodo(newTodo);
+    defaultList.addTodo(newTodo);
+    return newTodo;
+};
+
+export function createList(name){
+    const newList = new List(name);
+    allLists.addTodo(newList);
+    return newList;
 };
