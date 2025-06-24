@@ -9,7 +9,15 @@ function createTodoEl(todo){
 
 export function initialDisplay(){
     const todoListContainer = document.querySelector("#todo-list-container");
-    for(let todo of defaultList.array){
-        todoListContainer.appendChild(createTodoEl(todo));
+    const defautlListEl = document.createElement("div");
+    defautlListEl.className = "default-list list";
+    for (let todo of defaultList.array){
+        defautlListEl.appendChild(createTodoEl(todo));
     };
+    todoListContainer.appendChild(defautlListEl);
+};
+
+export function cleanDisplay(){
+    const todoListContainer = document.querySelector("#todo-list-container");
+    todoListContainer.textContent = "";
 };
