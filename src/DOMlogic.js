@@ -1,20 +1,39 @@
-import { defaultList , createTodo } from "./applogic";
+import { defaultList , allLists, createTodo } from "./applogic";
 
 function createTodoEl(todo){
     const todoEl = document.createElement("div")
     todoEl.className = "todo";
     todoEl.textContent = todo.title + " " + todo.dueDate.getFullYear();
     return todoEl;
+};
+
+function createListEl(list){
+    const listEl = document.createElement("div");
+    listEl.className = "list";
+    const listName = document.createElement("div");
+    listName.className = "list-name";
+    listName.textContent = `${list.name}`;
+    listEl.appendChild(listName);
+    return listEl;
+};
+
+function displayTodosOfList(list, listEl){
+    for (let todo of list.array){
+        listEl.appendChild(createTodoEl(todo));
+    };
+};
+
+function displayAllLists(){
+    for (let list of allLists.array) {
+        const todoListContainer = document.querySelector("#todo-list-container");
+        const listEl = createListEl(list);
+        displayTodosOfList(list, listEl);
+        todoListContainer.appendChild(listEl)
+    };
 }
 
 export function initialDisplay(){
-    const todoListContainer = document.querySelector("#todo-list-container");
-    const defautlListEl = document.createElement("div");
-    defautlListEl.className = "default-list list";
-    for (let todo of defaultList.array){
-        defautlListEl.appendChild(createTodoEl(todo));
-    };
-    todoListContainer.appendChild(defautlListEl);
+    displayAllLists();
 };
 
 export function cleanDisplay(){

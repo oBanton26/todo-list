@@ -1,6 +1,6 @@
 import "./styles.css";
 import { createTodo , createList} from "./applogic";
-import { initialDisplay , cleanDisplay } from "./DOMlogic.js";
+import { initialDisplay } from "./DOMlogic.js";
 
 const firstTodo = createTodo("work", "i just need to work duh", new Date(2000, 5, 26), 1);
 const firstList = createList("My first list");
