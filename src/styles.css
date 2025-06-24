@@ -34,9 +34,27 @@ h1 {
 .list {
     border: 1px solid black;
     border-radius: 2vh;
+    height: fit-content;
 }
 
 .list-name {
     text-align: center;
     font-size: 1.2rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.new-btn {
+    height: 30px;
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+
+.new-btn:hover {
+    background-color: rgb(224, 220, 220);
 }
