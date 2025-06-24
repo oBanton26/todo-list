@@ -8,5 +8,6 @@ firstList.addTodo(createTodo("Wash my clothes", "it's self explanatory", new Dat
 createTodo("Test the default list", "it's self explanatory again", new Date(), 2);
 createTodo("Prout");
 firstList.addTodo(firstTodo);
+firstList.addTodo(createTodo("Another todo to test"))
 
 initialDisplay();

@@ -24,8 +24,9 @@ function displayTodosOfList(list, listEl){
 };
 
 function displayAllLists(){
+    cleanDisplay();
+    const todoListContainer = document.querySelector("#todo-list-container");
     for (let list of allLists.array) {
-        const todoListContainer = document.querySelector("#todo-list-container");
         const listEl = createListEl(list);
         displayTodosOfList(list, listEl);
         todoListContainer.appendChild(listEl)
@@ -36,7 +37,7 @@ export function initialDisplay(){
     displayAllLists();
 };
 
-export function cleanDisplay(){
+function cleanDisplay(){
     const todoListContainer = document.querySelector("#todo-list-container");
     todoListContainer.textContent = "";
 };
