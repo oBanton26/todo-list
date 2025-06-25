@@ -1,4 +1,4 @@
-export class Todo {
+class Todo {
     constructor(title, description, dueDate, priority){
         this.title = title;
         this.description = description;
@@ -12,7 +12,7 @@ export class Todo {
     };
 };
 
-export class List {
+class List {
     constructor(name){
         this.name = name;
         this.array = [];

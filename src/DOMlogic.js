@@ -3,7 +3,7 @@ import { defaultList , allLists, createTodo } from "./applogic";
 function createTodoEl(todo){
     const todoEl = document.createElement("div")
     todoEl.className = "todo";
-    todoEl.textContent = todo.title + " " + todo.dueDate.getFullYear();
+    todoEl.textContent = todo.title + " " + todo.dueDate;
     return todoEl;
 };
 
@@ -33,7 +33,7 @@ function displayAllLists(){
     };
 }
 
-export function initialDisplay(){
+export function display(){
     displayAllLists();
 };
 
