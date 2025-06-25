@@ -1,4 +1,4 @@
-import { defaultList , allLists, createTodo } from "./applogic";
+import { allLists } from "./applogic";
 
 function createTodoEl(todo){
     const todoEl = document.createElement("div")
