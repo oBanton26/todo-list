@@ -49,3 +49,10 @@ export function createList(name){
     allLists.addTodo(newList);
     return newList;
 };
+
+export function getListFromAllLists(objectName){
+    function isList(object){
+        return object.name === objectName;
+    };
+    return allLists.array.find(isList);
+};

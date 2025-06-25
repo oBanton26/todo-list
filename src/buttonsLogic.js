@@ -1,4 +1,4 @@
-import { createTodo , createList } from "./applogic";
+import { createTodo , createList , getListFromAllLists , defaultList } from "./applogic";
 import { display } from "./DOMlogic";
 
 export function setUpButtons(){
@@ -18,8 +18,15 @@ export function setUpButtons(){
         let descriptionInputed = formData.get("description");
         let dueDateInputed = formData.get("dueDate");
         let priorityInputed = formData.get("priority");
-        
-        createTodo(titleInputed, descriptionInputed, dueDateInputed, priorityInputed);
+
+        const selectedListName = formData.get("selectedList");
+        let selectedList = getListFromAllLists(selectedListName);
+
+        const createdTodo = createTodo(titleInputed, descriptionInputed, dueDateInputed, priorityInputed);
+        if (selectedList !== defaultList){
+            selectedList.addTodo(createdTodo);
+        };
+
         display();
         
         newTodoForm.reset();
