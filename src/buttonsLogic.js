@@ -18,10 +18,10 @@ export function setUpButtons(){
         let descriptionInputed = formData.get("description");
         let dueDateInputed = formData.get("dueDate");
         let priorityInputed = formData.get("priority");
-
         const selectedListName = formData.get("selectedList");
-        let selectedList = getListFromAllLists(selectedListName);
-
+        
+        // Creates and adds todo to the selected list
+        const selectedList = getListFromAllLists(selectedListName);
         const createdTodo = createTodo(titleInputed, descriptionInputed, dueDateInputed, priorityInputed);
         if (selectedList !== defaultList){
             selectedList.addTodo(createdTodo);
