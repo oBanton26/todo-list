@@ -32,12 +32,24 @@ function displayAllLists(){
         todoListContainer.appendChild(listEl)
     };
 }
-
-export function display(){
-    displayAllLists();
-};
-
 function cleanDisplay(){
     const todoListContainer = document.querySelector("#todo-list-container");
     todoListContainer.textContent = "";
 };
+
+function updateTodoListSelect(){
+    const listSelect = document.querySelector("#selected-list");
+    listSelect.textContent = "";
+    for (let list of allLists.array){
+        const newOption = document.createElement("option");
+        newOption.setAttribute("value", list.name);
+        newOption.textContent = list.name;
+        listSelect.appendChild(newOption);
+    };
+};
+
+export function display(){
+    updateTodoListSelect();
+    displayAllLists();
+};
+
