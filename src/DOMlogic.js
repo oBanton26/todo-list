@@ -1,11 +1,39 @@
 import { allLists } from "./applogic";
 
 function createTodoEl(todo){
-    const todoEl = document.createElement("div")
+    const todoEl = document.createElement("div");
+    function expandable(){
+        const description = createSmallDiv(todo.description);
+        description.className = "expandable";
+        todoEl.appendChild(description);
+        const priority = createSmallDiv(todo.priority);
+        priority.className = "expandable";
+        todoEl.classList.add("expanded");
+        todoEl.appendChild(priority);
+        todoEl.addEventListener("click", shrinkable);
+        todoEl.removeEventListener("click", expandable)
+    };
+    function shrinkable(){
+        const expandedDivs = todoEl.querySelectorAll(".expandable");
+        for (let div of expandedDivs){
+            todoEl.removeChild(div);
+        };
+        todoEl.addEventListener("click", expandable);
+        todoEl.removeEventListener("click", shrinkable);
+    }
+
     todoEl.className = "todo";
-    todoEl.textContent = todo.title + " " + todo.dueDate;
+    todoEl.appendChild(createSmallDiv(todo.title));
+    todoEl.appendChild(createSmallDiv(todo.dueDate));
+    todoEl.addEventListener("click", expandable);
     return todoEl;
 };
+
+function createSmallDiv(content){
+    const div = document.createElement("div");
+    div.textContent = content;
+    return div;
+}
 
 function createListEl(list){
     const listEl = document.createElement("div");
@@ -32,6 +60,7 @@ function displayAllLists(){
         todoListContainer.appendChild(listEl)
     };
 }
+
 function cleanDisplay(){
     const todoListContainer = document.querySelector("#todo-list-container");
     todoListContainer.textContent = "";
