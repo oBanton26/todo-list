@@ -24,7 +24,9 @@ class List {
 
     removeTodo(todo){
         const todoIndex = this.array.indexOf(todo);
-        this.array.splice(todoIndex, 1);
+        if (todoIndex !== -1){
+            this.array.splice(todoIndex, 1);
+        };
     };
 };
 

@@ -6,12 +6,25 @@ function createTodoEl(todo){
         const description = createSmallDiv(todo.description);
         description.className = "expandable";
         todoEl.appendChild(description);
+        
         const priority = createSmallDiv(todo.priority);
         priority.className = "expandable";
-        todoEl.classList.add("expanded");
         todoEl.appendChild(priority);
+        
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.addEventListener("click", ()=>{
+            for (let list of allLists.array){
+                list.removeTodo(todo);
+            };
+            display();
+        });
+        deleteBtn.className = "expandable";
+        todoEl.appendChild(deleteBtn);
+        
+        todoEl.classList.add("expanded");
         todoEl.addEventListener("click", shrinkable);
-        todoEl.removeEventListener("click", expandable)
+        todoEl.removeEventListener("click", expandable);
     };
     function shrinkable(){
         const expandedDivs = todoEl.querySelectorAll(".expandable");
