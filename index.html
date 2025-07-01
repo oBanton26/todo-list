@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+<script defer src="main.js"></script></head>
+<body>
+    <header>
+        <h1>Todo List</h1>
+        <button id="new-todo-btn" class="new-btn">New todo</button>
+        <button id="new-list-btn" class="new-btn">New list</button>
+    </header>
+
+    <dialog id="new-todo-dlg" closedby="any">
+        <form action="" method="dialog" id="new-todo-form">
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" cols="20" rows="3"></textarea>
+            </div>
+            <div>
+                <label for="dueDate">Due date:</label>
+                <input type="date" id="dueDate" name="dueDate">
+            </div>
+            <div>
+                <label for="priority">Priority:</label>
+                <select name="priority" id="priority">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div>
+                <label for="selected-list">Include in list:</label>
+                <select name="selectedList" id="selected-list">
+                    
+                </select>
+            </div>
+            <div>
+                <button type="submit">Add</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="new-list-dlg" closedby="any">
+        <form action="" method="dialog" id="new-list-form">
+            <div>
+                <label for="name">List name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div>
+                <button type="submit">Add</button>
+            </div>
+        </form>
+    </dialog>
+    
+    <div id="todo-list-container">
+    </div>
+</body>
+</html>
