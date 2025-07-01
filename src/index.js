@@ -11,5 +11,7 @@ createTodo("Prout");
 firstList.addTodo(firstTodo);
 firstList.addTodo(createTodo("Another todo to test"))
 
+localStorage.setItem("todo_test", JSON.stringify(firstTodo));
+console.log(JSON.parse(localStorage.getItem("todo_test")).description);
 setUpButtons();
 display();

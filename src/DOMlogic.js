@@ -11,6 +11,8 @@ function createTodoEl(todo){
         priority.className = "expandable";
         todoEl.appendChild(priority);
         
+
+        // Delete button part
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
         deleteBtn.addEventListener("click", ()=>{
@@ -22,6 +24,7 @@ function createTodoEl(todo){
         deleteBtn.className = "expandable";
         todoEl.appendChild(deleteBtn);
         
+
         todoEl.classList.add("expanded");
         todoEl.addEventListener("click", shrinkable);
         todoEl.removeEventListener("click", expandable);
