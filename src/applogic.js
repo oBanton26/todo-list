@@ -1,10 +1,11 @@
 class Todo {
-    constructor(title, description, dueDate, priority){
+    constructor(title, description, dueDate, priority, listName){
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
         this.completed = false;
+        this.listName = listName;
     };
 
     toggleCompleted(){
@@ -40,8 +41,8 @@ export const allLists = new List("All lists");
 export const defaultList = createList("Default List");
 
 
-export function createTodo(title, description = "", dueDate = new Date(), priority = 3){
-    const newTodo = new Todo(title, description, dueDate, priority);
+export function createTodo(title, description = "", dueDate = new Date(), priority = 3, listName = "defaultList"){
+    const newTodo = new Todo(title, description, dueDate, priority, listName);
     defaultList.addTodo(newTodo);
     return newTodo;
 };
