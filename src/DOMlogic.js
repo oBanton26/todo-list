@@ -1,4 +1,5 @@
 import { allLists } from "./applogic";
+import { populateStorage } from "./localStorageLogic";
 
 function createTodoEl(todo){
     const todoEl = document.createElement("div");
@@ -19,6 +20,7 @@ function createTodoEl(todo){
             for (let list of allLists.array){
                 list.removeTodo(todo);
             };
+            populateStorage();
             display();
         });
         deleteBtn.className = "expandable";
