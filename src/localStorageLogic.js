@@ -1,6 +1,6 @@
 import { allLists, defaultList } from "./applogic";
 
-export function populateLocalStorage (){
+export function populateStorage (){
     localStorage.clear();
 
     // Naming part
@@ -14,15 +14,15 @@ export function populateLocalStorage (){
     // Setting part
     for (let list of allLists.array){
         if (list == defaultList){
-            // Loop through defaultList
+            // Loop through defaultList and check if it is a defaultList todo
             for (let todo of list.array){
-                if (todo.listName === "defaultList"){
+                if (todo.listName === "Default List"){
                     localStorage.setItem(itemName, JSON.stringify(todo));
                     incrementItemName();
                 };
             }
         } else {
-            // Loop throught every other lists
+            // Loop throught every other lists to add the todo
             for (let todo of list.array){
                 localStorage.setItem(itemName, JSON.stringify(todo));
                 incrementItemName();

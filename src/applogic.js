@@ -41,7 +41,7 @@ export const allLists = new List("All lists");
 export const defaultList = createList("Default List");
 
 
-export function createTodo(title, description = "", dueDate = new Date(), priority = 3, listName = "defaultList"){
+export function createTodo(title, description = "", dueDate = new Date(), priority = 3, listName = "Default List"){
     const newTodo = new Todo(title, description, dueDate, priority, listName);
     defaultList.addTodo(newTodo);
     return newTodo;
