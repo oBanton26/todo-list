@@ -24,7 +24,6 @@ export function setUpButtons(){
         // Creates and adds todo to the selected list
         const selectedList = getListFromAllLists(selectedListName);
         const createdTodo = createTodo(titleInputed, descriptionInputed, dueDateInputed, priorityInputed, selectedListName);
-        console.log(createdTodo);
         if (selectedList !== defaultList){
             selectedList.addTodo(createdTodo);
         };

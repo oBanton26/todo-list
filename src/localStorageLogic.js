@@ -1,4 +1,4 @@
-import { allLists, defaultList } from "./applogic";
+import { allLists, createList, createTodo, defaultList, getListFromAllLists } from "./applogic";
 
 export function populateStorage (){
     localStorage.clear();
@@ -28,5 +28,36 @@ export function populateStorage (){
                 incrementItemName();
             }
         };
-    }
+    };
+};
+
+
+export function retrieveStorage (){
+    const storageLength = localStorage.length;
+
+    // Maybe this two next lines aren't usefull when we remove every hard code added todos
+    // (because each time you refresh, you start with a fresh new allLists and defaultList)
+    // defaultList.array = [];
+    // allLists.array.splice(1, 100);
+
+    
+    for (let i=0 ; i<storageLength ; i++){
+        function isDifferentList(currentvalue){
+            return item.listName !== currentvalue.name;
+        };
+
+        let itemName = "item" + i;
+        const item = JSON.parse(localStorage.getItem(itemName));
+
+        // Creates a new List if no list of allLists have the item.listName
+        if (allLists.array.every(isDifferentList)){
+            createList(item.listName);
+        };
+
+        const listObject = getListFromAllLists(item.listName);
+        const createdTodo = createTodo(item.title, item.description, item.dueDate, item.priority, item.listName);
+        if (listObject !== defaultList) {
+            listObject.addTodo(createdTodo);
+        };
+    };
 };
