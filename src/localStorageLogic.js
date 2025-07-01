@@ -34,13 +34,7 @@ export function populateStorage (){
 
 export function retrieveStorage (){
     const storageLength = localStorage.length;
-
-    // Maybe this two next lines aren't usefull when we remove every hard code added todos
-    // (because each time you refresh, you start with a fresh new allLists and defaultList)
-    // defaultList.array = [];
-    // allLists.array.splice(1, 100);
-
-    
+   
     for (let i=0 ; i<storageLength ; i++){
         function isDifferentList(currentvalue){
             return item.listName !== currentvalue.name;
